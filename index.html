@@ -446,7 +446,7 @@ const GASTOS_HAB=[
   {label:'Hostinger',color:'#F59E0B',nota:'Hosting mensual'},
   {label:'Google Ads',color:'#EF4444',nota:'Publicidad mensual'},
 ];
-const S=(k,v)=>{try{localStorage.setItem('na4_'+k,JSON.stringify(v))}catch(e){}};
+const S=(k,v)=>{try{localStorage.setItem('na4_'+k,JSON.stringify(v));}catch(e){}if(typeof dbxScheduleSave==='function')dbxScheduleSave();};
 const L=(k,d)=>{try{const v=localStorage.getItem('na4_'+k);return v?JSON.parse(v):d}catch(e){return d}};
 let extraPats=L('ep',[]),patEdits=L('pe',{}),dxPropio=L('dxp',{}),dxIA=L('dxi',{});
 let notas2=L('n2',{}),turnos=L('tu',{}),cobros=L('co',[]),gastos=L('ga',[]);
@@ -1172,8 +1172,6 @@ async function dbxRestoreIfNeeded(){
 }
 
 // Hook into S() to auto-save on every change
-const _origS2 = S;
-window.S = function(k,v){ _origS2(k,v); dbxScheduleSave(); };
 
 // Init on load
 window.addEventListener('load', function(){ dbxRestoreIfNeeded(); });
