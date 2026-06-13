@@ -1,7 +1,4 @@
-<div class="qk-card" onclick="sv('pacientes')">
-          <div class="qk-icon" style="background:#185FA522">👥</div>
-          <div class="qk-info"><div class="qk-name">Pacientes</div><div class="qk-sub">Ver fichas</div></div>
-        </div><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -10,7 +7,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#0F172A;--sf:#1E293B;--sf2:#293548;--sf3:#1a2235;--bd:#334155;--tx:#F1F5F9;--mt:#94A3B8;--mt2:#64748B;--ac:#38BDF8;--ac2:#818CF8;--gn:#10B981;--am:#F59E0B;--rd:#EF4444;--r:12px;--rs:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
-body{background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;position:relative}
+body{background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;position:relative;font-size:15px}
 body::before{content:'';position:fixed;inset:0;background:url("https://assets.zyrosite.com/sntMAcVE5OEix3ph/cara-yoX3JBWEjPKwUUBd.gif") center center / cover no-repeat;opacity:.045;pointer-events:none;z-index:0;filter:blur(1px) hue-rotate(200deg) saturate(0.4)}
 main,nav,.ov,.toast{position:relative;z-index:1}
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(15,23,42,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);height:56px;padding:0 12px;display:flex;align-items:center;gap:8px}
@@ -228,26 +225,25 @@ select option{background:var(--bg)}
 
 <div id="view-home" class="view on">
   <div style="text-align:center;padding:10px 0 2px;margin-bottom:4px"><img src="https://assets.zyrosite.com/sntMAcVE5OEix3ph/cara-yoX3JBWEjPKwUUBd.gif" alt="" style="width:88px;height:88px;object-fit:contain;opacity:.6;border-radius:50%;filter:drop-shadow(0 0 14px rgba(56,189,248,.5)) hue-rotate(180deg)" onerror="this.style.display='none'"></div>
+    <div class="sec">
+    <div class="sec-ttl">Principal</div>
+    <div class="grid2">
+      <a class="lbtn" href="javascript:void(0)" onclick="sv('pacs');rpts();" style="border:1.5px solid rgba(24,95,165,.4)"><div class="lic" style="background:rgba(24,95,165,.2)">&#128101;</div><div class="li"><strong>Pacientes</strong><span>Ver fichas</span></div></a>
+      <a class="lbtn" href="javascript:void(0)" onclick="openNewPat()" style="border:1.5px solid rgba(16,185,129,.4)"><div class="lic" style="background:rgba(16,185,129,.2)">&#43;</div><div class="li"><strong>Nuevo paciente</strong><span>Registrar</span></div></a>
+      <a class="lbtn" href="javascript:void(0)" onclick="sv('agenda')" style="border:1.5px solid rgba(56,189,248,.4)"><div class="lic" style="background:rgba(56,189,248,.2)">&#128197;</div><div class="li"><strong>Agenda</strong><span>Ver turnos</span></div></a>
+      <a class="lbtn" href="javascript:void(0)" onclick="sv('fin')" style="border:1.5px solid rgba(245,158,11,.4)"><div class="lic" style="background:rgba(245,158,11,.2)">&#128176;</div><div class="li"><strong>Finanzas</strong><span>Cobros</span></div></a>
+    </div>
+  </div>
   <div class="sec">
     <div class="sec-ttl">Accesos r&#225;pidos</div>
     <div class="grid2">
-      <a class="lbtn" href="javascript:void(0)" onclick="window.open('https://app.rcta.me','_system')"><div class="lic" style="background:rgba(220,38,38,.13)">&#128138;</div><div class="li"><strong>RCTA</strong><span>Recetas</span></div></a>
       <a class="lbtn" href="javascript:void(0)" onclick="window.open('https://cup.pami.org.ar','_system')"><div class="lic" style="background:rgba(59,130,246,.13)">&#128203;</div><div class="li"><strong>CUP PAMI</strong><span>&#211;rdenes</span></div></a>
-      <a class="lbtn" href="javascript:void(0)" onclick="sv('pacientes')"><div class="lic" style="background:rgba(24,95,165,.15)">&#128101;</div><div class="li"><strong>Pacientes</strong><span>Ver fichas</span></div></a>
+      <a class="lbtn" href="javascript:void(0)" onclick="window.open('https://app.rcta.me','_system')"><div class="lic" style="background:rgba(220,38,38,.13)">&#128138;</div><div class="li"><strong>RCTA</strong><span>Recetas</span></div></a>
       <a class="lbtn" href="javascript:void(0)" onclick="window.open('https://l.doctoraliar.com/?client_id=10853_2pt70r4dzpc00sc80oc4gogs0wwwwogccscckowsg88ccgg8cc','_system')"><div class="lic" style="background:rgba(139,92,246,.13)">&#128104;&#8205;&#9877;&#65039;</div><div class="li"><strong>Doctoralia</strong><span>Tu perfil</span></div></a>
+      <a class="lbtn" href="javascript:void(0)" onclick="sv('ia')"><div class="lic" style="background:rgba(129,140,248,.13)">&#10022;</div><div class="li"><strong>IA</strong><span>Consultar</span></div></a>
     </div>
   </div>
-  <div class="sec">
-    <div class="sec-ttl">Acciones</div>
-    <div class="grid2">
-      <button class="abtn2" onclick="openNewPat()"><div class="lic" style="background:rgba(16,185,129,.13)">&#43;</div>Nuevo paciente</button>
-      <button class="abtn2" onclick="sv('fin')"><div class="lic" style="background:rgba(245,158,11,.13)">&#128176;</div>Ingresos y gastos</button>
-      <button class="abtn2" onclick="sv('agenda')"><div class="lic" style="background:rgba(56,189,248,.13)">&#128197;</div>Agenda</button>
-      <button class="abtn2" onclick="sv('ia')"><div class="lic" style="background:rgba(129,140,248,.13)">&#10022;</div>Consultar IA</button>
-    </div>
-  </div>
-
-  <div class="sec">
+<div class="sec">
     <div class="sec-ttl">Mis datos</div>
     <div class="grid2">
       <button class="abtn2" onclick="exportarTodo()">
@@ -386,7 +382,8 @@ select option{background:var(--bg)}
   <div class="mod">
     <div class="mod-ttl" id="mttl">Asignar turno</div>
     <label>Paciente</label>
-    <input type="text" id="ms" placeholder="Buscar nombre..." oninput="mSrch()" autocomplete="off">
+    <input type="text" id="ms" placeholder="Buscar o escribir nombre..." oninput="mSrch()" autocomplete="off">
+    <div style="font-size:11px;color:var(--mt2);margin-top:3px">Si no está registrado, escribí el nombre y confirmá igual.</div>
     <div class="mres" id="mres" style="margin-top:5px;max-height:140px;overflow-y:auto"></div>
     <input type="hidden" id="mpid">
     <div id="msel" style="margin-top:5px;font-size:13px;color:var(--ac)"></div>
@@ -486,7 +483,7 @@ function sv(v){
   const vm={home:0,pacs:1,agenda:2,fin:3,stats:4,ia:5};
   const idx=vm[v];if(idx!==undefined)document.querySelectorAll('.tab')[idx]?.classList.add('on');
   if(v==='detail')document.querySelectorAll('.tab')[1]?.classList.add('on');
-  window.scrollTo(0,0);if(v==='fin')renderFin();
+  window.scrollTo(0,0);if(v==='fin')renderFin();if(v==='pacs')rpts();
 }
 function clsOv(id,e){if(e&&e.target===document.getElementById(id))document.getElementById(id).classList.add('h');}
 
@@ -619,7 +616,19 @@ function buildPills(){
 function setPF(f){pf=f;document.querySelectorAll('.pill').forEach(p=>p.classList.toggle('on',(f==='todos'&&p.textContent.startsWith('Todos'))||(f!=='todos'&&p.textContent.startsWith(dl2(f)))));rpts();}
 function fpts(){ps=document.getElementById('psearch').value.toLowerCase().trim();rpts();}
 function rpts(){
-  const fil=allPats().filter(p=>{const d=showDx(p);return(pf==='todos'||d===pf)&&(!ps||p.nombre.toLowerCase().includes(ps)||(p.dni&&p.dni.includes(ps)));});
+  // Sort by last visit first
+  function lastVisitOrder(p){
+    const pe=patEdits[p.id]||{};
+    const n2=(notas2[p.id]||[]);
+    const baseN=(p.notas||[]);
+    // Check if recently viewed (in lastViewed list)
+    const lv=L('lv',[]);
+    const lvIdx=lv.indexOf(p.id);
+    if(lvIdx!==-1) return 100000-lvIdx; // recently viewed = high priority
+    const total=(n2.length||0)+(baseN.length||0);
+    return total;
+  }
+  const fil=allPats().filter(p=>{const d=showDx(p);return(pf==='todos'||d===pf)&&(!ps||p.nombre.toLowerCase().includes(ps)||(p.dni&&p.dni.includes(ps)));}).sort((a,b)=>lastVisitOrder(b)-lastVisitOrder(a));
   document.getElementById('pct').textContent=fil.length+' paciente'+(fil.length!==1?'s':'');
   if(!fil.length){document.getElementById('plist').innerHTML='<div style="text-align:center;color:var(--mt);padding:36px 0">Sin resultados</div>';return;}
   document.getElementById('plist').innerHTML=fil.map(p=>{
@@ -788,6 +797,8 @@ function delNota(pacId, notaIdx, isBase){
 
 function showPt(id){
   currentPatId=id;const p=getPat(id);if(!p)return;
+  // Track recently viewed
+  const lv=L('lv',[]);const li=lv.indexOf(id);if(li!==-1)lv.splice(li,1);lv.unshift(id);if(lv.length>50)lv.pop();S('lv',lv);
   const pe=patEdits[id]||{};
   const dP=p.dx_propio||'',dI=p.dx_ia||p.diagnostico||'sin_diagnostico';
   const shown=dP||dI,c=dc2(shown),edad=p.fecha_nac?calcEdad(p.fecha_nac):(p.edad||'');
@@ -834,12 +845,14 @@ function showPt(id){
       const nb=ce('div','nota-block');nb.id='nota_blk_'+id+'_'+(n.isBase?'b':'e')+n.idx;
       const nf=ce('div','nota-fecha');
       const nfspan=ce('span');nfspan.textContent=n.fecha;nf.appendChild(nfspan);
-      const nbts=ce('span');nbts.style.cssText='display:flex;gap:5px';
-      const eb=ce('button','edit-btn');eb.textContent='✎';
+      const nbts=ce('span');
+      const eb=ce('button','edit-btn');eb.textContent='✎ Editar';
       eb.onclick=(function(ni,ib){return function(){editNota(id,ni,ib);};})(n.idx,n.isBase);
-      const db=ce('button','edit-btn');db.style.cssText='border-color:var(--rd);color:var(--mt2)';db.innerHTML='&#128465;';
+      nbts.appendChild(eb);nf.appendChild(nbts);nb.appendChild(nf);
+      const dbwrap=ce('div');dbwrap.style.cssText='text-align:right;margin-top:8px;padding-top:5px;border-top:1px solid var(--bd)';
+      const db=ce('button','edit-btn');db.style.cssText='font-size:10px;color:var(--mt2);border-color:transparent;padding:2px 6px';db.textContent='Eliminar consulta';
       db.onclick=(function(ni,ib){return function(){delNota(id,ni,ib);};})(n.idx,n.isBase);
-      nbts.appendChild(eb);nbts.appendChild(db);nf.appendChild(nbts);nb.appendChild(nf);
+      dbwrap.appendChild(db);nb.appendChild(dbwrap);
       const nt=ce('div','nota-txt');nt.textContent=n.txt;nb.appendChild(nt);
       det.appendChild(nb);
     });
@@ -880,6 +893,17 @@ function ftab(t){
   document.querySelectorAll('.fsec').forEach(s=>s.classList.remove('on'));
   document.getElementById('fsec-'+t).classList.add('on');
   if(t==='hist')renderHist();if(t==='resumen')renderResumen();if(t==='gastos')renderGastos();
+}
+
+function completarPago(idx){
+  const c=cobros[idx];if(!c)return;
+  const saldo=c.saldo;
+  if(!saldo||saldo<=0){toast('Ya está pagado');return;}
+  if(!confirm('Registrar pago completo de $'+saldo.toLocaleString('es-AR')+'?'))return;
+  cobros[idx].pago=(cobros[idx].pago||0)+saldo;
+  cobros[idx].saldo=0;
+  S('co',cobros);renderFin();
+  toast('Pago completado \u2713');
 }
 function renderFin(){
   document.getElementById('tipo-btns').innerHTML=TIPOS.map(t=>'<button class="tipo-btn" style="background:'+t.color+'22;color:'+t.color+';border-color:'+(selTipo===t.id?t.color:'transparent')+'" onclick="selT(\''+t.id+'\')">'+t.label+'</button>').join('');
@@ -940,7 +964,7 @@ function delGasto(id){if(!confirm('\u00bfEliminar?'))return;gastos=gastos.filter
 function renderHist(){
   const q=(document.getElementById('fin-srch')?.value||'').toLowerCase().trim();
   const fil=cobros.filter(c=>!q||c.pacienteNombre.toLowerCase().includes(q)||(c.nota&&c.nota.toLowerCase().includes(q)));
-  document.getElementById('pay-list').innerHTML=fil.length?fil.map(c=>{const cobrado=c.senia+c.pago;return '<div class="pay-item"><div class="pay-info"><div class="pay-name">'+c.pacienteNombre+'</div><div class="pay-meta">'+c.fecha+' \u00b7 '+c.tipoLabel+(c.nota?' \u00b7 '+c.nota:'')+'</div><div style="margin-top:4px;display:flex;gap:5px;flex-wrap:wrap">'+(c.senia?'<span class="tag-s">Se\u00f1a $'+c.senia.toLocaleString('es-AR')+'</span>':'')+(c.pago?'<span class="tag-p">Consultorio $'+c.pago.toLocaleString('es-AR')+'</span>':'')+'</div></div><div class="pay-amt"><div class="pay-total">$'+cobrado.toLocaleString('es-AR')+'</div><div class="pay-saldo" style="color:'+(c.saldo>0?'var(--am)':'var(--gn)')+'">'+(c.saldo>0?'Resta $'+c.saldo.toLocaleString('es-AR'):'Pagado \u2713')+'</div></div><button class="pay-del" onclick="delCobro('+c.id+')">&#128465;</button></div>';}).join(''):'<div style="color:var(--mt2);font-size:13px;text-align:center;padding:32px 0">Sin cobros registrados</div>';
+  document.getElementById('pay-list').innerHTML=fil.length?fil.map(c=>{const cobrado=c.senia+c.pago;const idx=cobros.indexOf(c);return '<div class="pay-item"><div class="pay-info"><div class="pay-name">'+c.pacienteNombre+'</div><div class="pay-meta">'+c.fecha+' \u00b7 '+c.tipoLabel+(c.nota?' \u00b7 '+c.nota:'')+'</div><div style="margin-top:4px;display:flex;gap:5px;flex-wrap:wrap">'+(c.senia?'<span class="tag-s">Se\u00f1a $'+c.senia.toLocaleString('es-AR')+'</span>':'')+(c.pago?'<span class="tag-p">Consultorio $'+c.pago.toLocaleString('es-AR')+'</span>':'')+'</div>'+(c.saldo>0?'<button class="inline-save" style="margin-top:6px;font-size:11px;padding:3px 10px" onclick="completarPago('+idx+')">Completar pago ($'+c.saldo.toLocaleString('es-AR')+')</button>':'')+'</div><div class="pay-amt"><div class="pay-total">$'+cobrado.toLocaleString('es-AR')+'</div><div class="pay-saldo" style="color:'+(c.saldo>0?'var(--am)':'var(--gn)')+'">'+(c.saldo>0?'Resta $'+c.saldo.toLocaleString('es-AR'):'Pagado \u2713')+'</div></div><button class="pay-del" onclick="delCobro('+c.id+')">&#128465;</button></div>';}).join(''):'<div style="color:var(--mt2);font-size:13px;text-align:center;padding:32px 0">Sin cobros registrados</div>';
 }
 function delCobro(id){if(!confirm('\u00bfEliminar?'))return;cobros=cobros.filter(c=>c.id!==id);S('co',cobros);renderHist();}
 function renderResumen(){
@@ -1003,10 +1027,9 @@ buildHome();buildPills();rpts();buildAg();buildStats();renderFin();
 
 // ── EXPORT / IMPORT ─────────────────────────────────────────
 function exportarTodo(){
-  // Collect all patient images
   const patImgs={};
   for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith('na5_imgs_')){const pid=k.replace('na5_imgs_','');try{patImgs[pid]=JSON.parse(localStorage.getItem(k)||'[]');}catch(e){}}}
-  const backup = {
+  const backup={
     version: 5,
     fecha: new Date().toISOString(),
     extraPats: L('ep',[]),
@@ -1019,19 +1042,46 @@ function exportarTodo(){
     gastos:    L('ga',[]),
     patImgs:   patImgs,
   };
-  const json = JSON.stringify(backup, null, 2);
-  const blob = new Blob([json], {type:'application/json'});
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  const fecha = new Date().toLocaleDateString('es-AR').replace(/\//g,'-');
-  a.href     = url;
-  a.download = 'NeuroAgenda_v5_backup_'+fecha+'.json';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-  toast('\u2713 Backup descargado');
+  const json = JSON.stringify(backup);
+  const fecha = new Date().toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit',year:'numeric'}).replace(/\//g,'-');
+  const fileName = 'NeuroAgenda_v5_backup_'+fecha+'.json';
+
+  // Upload to Dropbox
+  if(typeof DBX_TOKEN !== 'undefined' && DBX_TOKEN){
+    dbxSetStatus('saving','Subiendo backup a Dropbox...');
+    fetch('https://content.dropboxapi.com/2/files/upload', {
+      method:'POST',
+      headers:{
+        'Authorization':'Bearer '+DBX_TOKEN,
+        'Content-Type':'application/octet-stream',
+        'Dropbox-API-Arg':JSON.stringify({path:'/'+fileName, mode:'overwrite', autorename:false, mute:true})
+      },
+      body: json
+    }).then(r=>{
+      if(r.ok){
+        dbxSetStatus('ok','Backup subido a Dropbox ✓ — '+fileName);
+        toast('Backup guardado en Dropbox ✓');
+      } else {
+        dbxSetStatus('err','Error al subir — descargando localmente');
+        exportLocal(json, fileName);
+      }
+    }).catch(()=>{
+      dbxSetStatus('err','Sin conexión — descargando localmente');
+      exportLocal(json, fileName);
+    });
+  } else {
+    exportLocal(json, fileName);
+  }
 }
+
+function exportLocal(json, fileName){
+  const a=document.createElement('a');
+  a.href='data:application/json,'+encodeURIComponent(json);
+  a.download=fileName;
+  a.click();
+  toast('Backup descargado localmente');
+}
+
 
 function importarTodo(){
   const input = document.createElement('input');
