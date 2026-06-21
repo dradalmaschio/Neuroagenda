@@ -6,12 +6,12 @@
 <title>NeuroAgenda &middot; Dra. Dal Maschio</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0F172A;--sf:#1E293B;--sf2:#293548;--sf3:#1a2235;--bd:#334155;--tx:#F1F5F9;--mt:#94A3B8;--mt2:#64748B;--ac:#a855f7;--ac2:#e879f9;--gn:#10b981;--am:#f59e0b;--rd:#ef4444;--r:12px;--rs:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+:root{--bg:#0F172A;--sf:#1E293B;--sf2:#293548;--sf3:#1a2235;--bd:#334155;--tx:#F1F5F9;--mt:#94A3B8;--mt2:#64748B;--ac:#38BDF8;--ac2:#818CF8;--gn:#10B981;--am:#F59E0B;--rd:#EF4444;--r:12px;--rs:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
 body{background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;position:relative;font-size:15px}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at top right,rgba(168,85,247,.12) 0%,transparent 55%),radial-gradient(ellipse at bottom left,rgba(232,121,249,.10) 0%,transparent 55%);pointer-events:none;z-index:0}
+body::before{content:'';position:fixed;inset:0;background:url("https://assets.zyrosite.com/sntMAcVE5OEix3ph/cara-yoX3JBWEjPKwUUBd.gif") center center / cover no-repeat;opacity:.045;pointer-events:none;z-index:0;filter:blur(1px) hue-rotate(200deg) saturate(0.4)}
 main,nav,.ov,.toast{position:relative;z-index:1}
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(15,23,42,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);height:56px;padding:0 12px;display:flex;align-items:center;gap:8px}
-.brand{font-size:14px;font-weight:700;color:var(--ac);white-space:nowrap;text-shadow:0 0 18px rgba(168,85,247,.5)}
+.brand{font-size:14px;font-weight:700;color:var(--ac);white-space:nowrap;text-shadow:0 0 18px rgba(56,189,248,.4)}
 .tabs{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{background:none;border:none;color:var(--mt);padding:7px 10px;border-radius:var(--rs);font-size:12px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .15s}
@@ -78,7 +78,7 @@ select option{background:var(--bg)}
 .cf{font-size:11px;font-weight:600;color:var(--ac);margin-bottom:4px}
 .ct{font-size:13px;color:var(--mt);line-height:1.5}
 .addbox{background:var(--sf2);border:1px dashed var(--bd);border-radius:var(--r);padding:13px;margin-top:5px}
-.addbox textarea{min-height:72px;resize:vertical;padding:9px;border-radius:var(--rs)}
+.addbox textarea{min-height:50vh;resize:vertical;padding:9px;border-radius:var(--rs);font-size:16px;line-height:1.5}
 .btnp{background:var(--ac);color:#0F172A;border:none;padding:10px;border-radius:var(--rs);font-size:14px;font-weight:600;cursor:pointer;width:100%;margin-top:7px}
 .btnp:hover{opacity:.9}
 .btns{background:var(--sf2);color:var(--tx);border:1px solid var(--bd);padding:10px;border-radius:var(--rs);font-size:13px;cursor:pointer;width:auto;padding:7px 14px;margin:0}
@@ -224,7 +224,7 @@ select option{background:var(--bg)}
 <main>
 
 <div id="view-home" class="view on">
-  <div style="text-align:center;padding:10px 0 2px;margin-bottom:4px"><img src="https://assets.zyrosite.com/sntMAcVE5OEix3ph/cara-yoX3JBWEjPKwUUBd.gif" alt="" style="width:88px;height:88px;object-fit:contain;opacity:.6;border-radius:50%;filter:drop-shadow(0 0 16px rgba(168,85,247,.6)) hue-rotate(260deg)" onerror="this.style.display='none'"></div>
+  <div style="text-align:center;padding:10px 0 2px;margin-bottom:4px"><img src="https://assets.zyrosite.com/sntMAcVE5OEix3ph/cara-yoX3JBWEjPKwUUBd.gif" alt="" style="width:88px;height:88px;object-fit:contain;opacity:.6;border-radius:50%;filter:drop-shadow(0 0 14px rgba(56,189,248,.5)) hue-rotate(180deg)" onerror="this.style.display='none'"></div>
     <div class="sec">
     <div class="sec-ttl">Principal</div>
     <div class="grid2">
@@ -378,6 +378,19 @@ select option{background:var(--bg)}
 </div>
 </main>
 
+<div class="ov h" id="ov-rec">
+  <div class="mod">
+    <div class="mod-ttl">🎙️ Grabar consulta con IA</div>
+    <div id="rec-status" style="font-size:13px;color:var(--mt);margin-bottom:10px">Presioná Iniciar y hablá con el paciente. Se transcribe en vivo.</div>
+    <div id="rec-live" style="background:var(--sf2);border:1px solid var(--bd);border-radius:var(--rs);padding:10px;min-height:120px;max-height:32vh;overflow-y:auto;font-size:13px;line-height:1.5;white-space:pre-wrap;color:var(--tx)"></div>
+    <div id="rec-result" style="display:none"></div>
+    <div class="mod-btns" id="rec-btns">
+      <button class="bcancel" onclick="closeRecModal()">Cancelar</button>
+      <button class="bconf" id="rec-toggle" onclick="toggleRec()">🎙️ Iniciar grabación</button>
+    </div>
+  </div>
+</div>
+
 <div class="ov h" id="ov-turno" onclick="clsOv('ov-turno',event)">
   <div class="mod">
     <div class="mod-ttl" id="mttl">Asignar turno</div>
@@ -449,7 +462,7 @@ const GASTOS_HAB=[
 const S=(k,v)=>{try{localStorage.setItem('na4_'+k,JSON.stringify(v));}catch(e){}if(typeof dbxScheduleSave==='function')dbxScheduleSave();};
 const L=(k,d)=>{try{const v=localStorage.getItem('na4_'+k);return v?JSON.parse(v):d}catch(e){return d}};
 let extraPats=L('ep',[]),patEdits=L('pe',{}),dxPropio=L('dxp',{}),dxIA=L('dxi',{});
-let notas2=L('n2',{}),turnos=L('tu',{}),cobros=L('co',[]),gastos=L('ga',[]);
+let notas2=L('n2',{}),turnos=L('tu',{}),cobros=L('co',[]),gastos=L('ga',[]),resumenesIA=L('ria',{});
 let iaCtx=null,chatH=[],mid=0,wo=0,mslot=null,currentPatId=null,pf='todos',ps='',selTipo='consulta';
 
 const dc2=d=>DC[d]||'#6B7280';
@@ -539,11 +552,10 @@ function selMPt(id,nom){
 }
 function confT(){
   const pid=document.getElementById('mpid').value;
-  const msVal=document.getElementById('ms').value.trim();
-  const pacNombre=pid?(getPat(pid)?.nombre||msVal):msVal;
-  if(!pacNombre){alert('Escribí el nombre del paciente');return;}
+  if(!pid){alert('Seleccion\u00e1 un paciente');return;}
+  const p=getPat(pid);if(!p)return;
   if(!turnos[mslot.dk])turnos[mslot.dk]={};
-  turnos[mslot.dk][mslot.hora]={pacienteId:pid||'',pacienteNombre:pacNombre,motivo:document.getElementById('mmot').value.trim(),tipo:mslot.tipo};
+  turnos[mslot.dk][mslot.hora]={pacienteId:pid,pacienteNombre:p.nombre,motivo:document.getElementById('mmot').value.trim(),tipo:mslot.tipo};
   S('tu',turnos);document.getElementById('ov-turno').classList.add('h');buildAg();buildHome();toast('Turno asignado');
 }
 function delT(dk2,hora){if(!confirm('Cancelar turno?'))return;if(turnos[dk2])delete turnos[dk2][hora];S('tu',turnos);buildAg();buildHome();toast('Turno cancelado');}
@@ -869,6 +881,7 @@ function showPt(id){
   const ta=ce('textarea');ta.id='nc-'+id;ta.placeholder='Notas de la consulta de hoy...';
   const sb=ce('button','btnp');sb.textContent='Guardar consulta';sb.onclick=function(){addNota(id);};
   addbox.appendChild(adlbl);addbox.appendChild(ta);addbox.appendChild(sb);det.appendChild(addbox);
+  det.appendChild(renderResumenIA(id));
   sv('detail');
 }
 
@@ -888,6 +901,167 @@ function makeFieldBlock(pacId,field,label,val){
 
 
 function addNota(id){const ta=document.getElementById('nc-'+id);const txt=ta?.value.trim();if(!txt)return;const f=new Date().toLocaleDateString('es-AR',{month:'long',year:'numeric'}).toUpperCase();if(!notas2[id])notas2[id]=[];notas2[id].push({fecha:f,texto:txt});S('n2',notas2);showPt(id);toast('Consulta guardada');}
+
+// ── RESUMEN DE CONSULTA CON IA (grabación de voz) ─────────────
+function renderResumenIA(id){
+  const list=resumenesIA[id]||[];
+  const wrap=ce('div');
+  const st5=ce('div','stitle');st5.textContent='Resúmenes con IA';wrap.appendChild(st5);
+  const rb=ce('button','btnia');rb.textContent='🎙️ Grabar consulta y resumir con IA';
+  rb.onclick=function(){openRecModal(id);};
+  wrap.appendChild(rb);
+  if(list.length){
+    list.slice().reverse().forEach(function(r){
+      const card=ce('div','nota-block');card.style.cssText='margin-top:8px';
+      const nf=ce('div','nota-fecha');
+      const nfspan=ce('span');nfspan.textContent=r.fecha;nf.appendChild(nfspan);
+      const db=ce('button','edit-btn');db.textContent='🗑 Borrar';
+      db.onclick=function(){delResumenIA(id,r.id);};
+      nf.appendChild(db);card.appendChild(nf);
+      const nt=ce('div','nota-txt');nt.style.whiteSpace='pre-wrap';nt.textContent=r.resumen;
+      card.appendChild(nt);
+      if(r.transcript){
+        const tgl=ce('button','edit-btn');tgl.style.cssText='margin-top:6px;font-size:10px';tgl.textContent='Ver transcripción completa';
+        const tpre=ce('div');tpre.style.cssText='display:none;margin-top:6px;font-size:12px;color:var(--mt);white-space:pre-wrap;border-top:1px solid var(--bd);padding-top:6px';
+        tpre.textContent=r.transcript;
+        tgl.onclick=function(){const sh=tpre.style.display==='none';tpre.style.display=sh?'block':'none';tgl.textContent=sh?'Ocultar transcripción':'Ver transcripción completa';};
+        card.appendChild(tgl);card.appendChild(tpre);
+      }
+      wrap.appendChild(card);
+    });
+  } else {
+    const nd=ce('div');nd.style.cssText='color:var(--mt2);font-size:13px;margin-top:8px';nd.textContent='Sin resúmenes de IA todavía';wrap.appendChild(nd);
+  }
+  return wrap;
+}
+
+function delResumenIA(pacId,rid){
+  if(!confirm('¿Borrar este resumen de IA?'))return;
+  if(resumenesIA[pacId]){resumenesIA[pacId]=resumenesIA[pacId].filter(function(r){return r.id!==rid;});S('ria',resumenesIA);}
+  showPt(pacId);toast('Resumen eliminado');
+}
+
+let recRecognition=null, recPatId=null, recTranscript='', recActive=false;
+
+function openRecModal(id){
+  recPatId=id;recTranscript='';recActive=false;
+  document.getElementById('rec-live').textContent='';
+  document.getElementById('rec-result').style.display='none';
+  document.getElementById('rec-result').innerHTML='';
+  document.getElementById('rec-status').textContent='Presioná Iniciar y hablá con el paciente. Se transcribe en vivo.';
+  resetRecToggle();
+  document.getElementById('ov-rec').classList.remove('h');
+}
+
+function closeRecModal(){
+  stopRecognitionHard();
+  document.getElementById('ov-rec').classList.add('h');
+}
+
+function resetRecToggle(){
+  const btns=document.getElementById('rec-btns');
+  btns.style.display='flex';btns.innerHTML='';
+  const bcanc=ce('button','bcancel');bcanc.textContent='Cancelar';bcanc.onclick=closeRecModal;
+  const btog=ce('button','bconf');btog.id='rec-toggle';btog.textContent='🎙️ Iniciar grabación';btog.onclick=toggleRec;
+  btns.appendChild(bcanc);btns.appendChild(btog);
+}
+
+function toggleRec(){ if(!recActive){startRec();} else {stopRecAndSummarize();} }
+
+function startRec(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){alert('Tu navegador no soporta dictado por voz. Probá con Chrome (Android o computadora).');return;}
+  recRecognition=new SR();
+  recRecognition.lang='es-AR';recRecognition.continuous=true;recRecognition.interimResults=true;
+  recRecognition.onresult=function(e){
+    let interim='';
+    for(let i=e.resultIndex;i<e.results.length;i++){
+      const txt=e.results[i][0].transcript;
+      if(e.results[i].isFinal){recTranscript+=txt+' ';} else {interim+=txt;}
+    }
+    const live=document.getElementById('rec-live');live.textContent=recTranscript+interim;live.scrollTop=live.scrollHeight;
+  };
+  recRecognition.onerror=function(e){
+    console.error('Speech recognition error:',e.error);
+    if(e.error==='no-speech')return;
+    document.getElementById('rec-status').textContent='Error de micrófono: '+e.error+'. Podés reintentar.';
+  };
+  recRecognition.onend=function(){ if(recActive){try{recRecognition.start();}catch(e){}} };
+  try{
+    recRecognition.start();recActive=true;
+    document.getElementById('rec-status').innerHTML='<span style="color:#EF4444">●</span> Escuchando... hablá normalmente.';
+    document.getElementById('rec-toggle').textContent='⏹ Detener y resumir con IA';
+  }catch(e){alert('No se pudo iniciar el micrófono.');}
+}
+
+function stopRecognitionHard(){
+  recActive=false;
+  if(recRecognition){try{recRecognition.onend=null;recRecognition.stop();}catch(e){}recRecognition=null;}
+}
+
+async function stopRecAndSummarize(){
+  recActive=false;
+  if(recRecognition){try{recRecognition.onend=null;recRecognition.stop();}catch(e){}}
+  const transcript=recTranscript.trim();
+  if(!transcript){
+    document.getElementById('rec-status').textContent='No se detectó audio. Cerrá e intentá de nuevo.';
+    resetRecToggle();return;
+  }
+  await runSummary(transcript);
+}
+
+async function callClaudeResumen(transcript,p){
+  const edad=p.fecha_nac?calcEdad(p.fecha_nac):(p.edad||'');
+  let sys='Sos un médico neurólogo experimentado redactando la historia clínica a partir de la transcripción de audio de una consulta real (puede tener errores de dictado, modismos argentinos y abreviaturas médicas habladas). Generá un resumen clínico claro y una impresión diagnóstica, en español, con este formato exacto:\n\nRESUMEN CLÍNICO:\n(motivo de consulta, datos relevantes mencionados, examen si se menciona, plan/indicaciones)\n\nIMPRESIÓN DIAGNÓSTICA:\n(razonamiento breve y diagnóstico/s probable/s; si no hay elementos suficientes decilo explícitamente)\n\nNo inventes datos que no estén en la transcripción.';
+  sys+='\n\nPACIENTE: '+p.nombre+(edad?', '+edad+' años':'')+(p.dx_propio?'. Dx previo: '+dl2(p.dx_propio):'');
+  const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1200,system:sys,messages:[{role:'user',content:'Transcripción de la consulta:\n\n'+transcript}]})});
+  if(!r.ok)throw new Error('HTTP '+r.status);
+  const data=await r.json();
+  const txt=data.content?.map(function(c){return c.text||'';}).join('')||'';
+  if(!txt)throw new Error('respuesta vacía');
+  return txt;
+}
+
+async function runSummary(transcript){
+  document.getElementById('rec-status').textContent='Generando resumen e impresión diagnóstica con IA...';
+  document.getElementById('rec-btns').style.display='none';
+  const p=getPat(recPatId);
+  try{
+    const resumen=await callClaudeResumen(transcript,p);
+    showRecResult(transcript,resumen);
+  }catch(e){
+    document.getElementById('rec-status').textContent='Error generando el resumen ('+e.message+'). Podés reintentar.';
+    const btns=document.getElementById('rec-btns');btns.style.display='flex';btns.innerHTML='';
+    const bcanc=ce('button','bcancel');bcanc.textContent='Cancelar';bcanc.onclick=closeRecModal;
+    const bretry=ce('button','bconf');bretry.textContent='🔁 Reintentar resumen';bretry.onclick=function(){runSummary(transcript);};
+    btns.appendChild(bcanc);btns.appendChild(bretry);
+  }
+}
+
+function showRecResult(transcript,resumen){
+  document.getElementById('rec-status').textContent='Listo. Revisá el resumen antes de guardar.';
+  const res=document.getElementById('rec-result');res.innerHTML='';res.style.display='block';
+  const lbl=ce('div');lbl.style.cssText='font-size:11px;color:var(--mt);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px';lbl.textContent='Resumen generado';
+  const box=ce('div');box.style.cssText='white-space:pre-wrap;font-size:13px;line-height:1.55;background:var(--sf2);border:1px solid var(--bd);border-radius:8px;padding:10px;max-height:32vh;overflow-y:auto';box.textContent=resumen;
+  res.appendChild(lbl);res.appendChild(box);
+  const btns=document.getElementById('rec-btns');btns.style.display='flex';btns.innerHTML='';
+  const bdesc=ce('button','bcancel');bdesc.textContent='Descartar';bdesc.onclick=closeRecModal;
+  const bsave=ce('button','bconf');bsave.textContent='Guardar en el paciente';bsave.onclick=function(){saveRecResult(transcript,resumen);};
+  btns.appendChild(bdesc);btns.appendChild(bsave);
+}
+
+function saveRecResult(transcript,resumen){
+  if(!resumenesIA[recPatId])resumenesIA[recPatId]=[];
+  resumenesIA[recPatId].push({
+    id:'ria'+Date.now(),
+    fecha:new Date().toLocaleString('es-AR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}),
+    resumen:resumen,transcript:transcript
+  });
+  S('ria',resumenesIA);
+  document.getElementById('ov-rec').classList.add('h');
+  showPt(recPatId);
+  toast('Resumen de IA guardado ✓');
+}
 
 function ftab(t){
   document.querySelectorAll('.ftab').forEach((b,i)=>b.classList.toggle('on',['reg','gastos','hist','resumen'][i]===t));
@@ -929,7 +1103,6 @@ function finSrch(){
 function selFinP(id,nom){document.getElementById('fin-pac-id').value=id;document.getElementById('fin-pac-sel').textContent='\u2713 '+nom;document.getElementById('fin-pac-r').innerHTML='';document.getElementById('fin-pac-s').value=nom;}
 function regCobro(){
   const pid=document.getElementById('fin-pac-id').value,p=pid?getPat(pid):null;
-  const freeNom=document.getElementById('fin-pac-s').value.trim();
   const t=TIPOS.find(x=>x.id===selTipo);
   const senia=parseFloat(document.getElementById('fin-senia').value)||0;
   const pago=parseFloat(document.getElementById('fin-pago').value)||0;
@@ -1042,6 +1215,7 @@ function exportarTodo(){
     turnos:    L('tu',{}),
     cobros:    L('co',[]),
     gastos:    L('ga',[]),
+    resumenesIA: L('ria',{}),
     patImgs:   patImgs,
   };
   const json = JSON.stringify(backup);
@@ -1064,7 +1238,13 @@ function exportarTodo(){
         dbxSetStatus('ok','Backup subido a Dropbox ✓ — '+fileName);
         toast('Backup guardado en Dropbox ✓');
       } else {
-        dbxSetStatus('err','Error al subir — descargando localmente');
+        r.json().then(err=>{
+          const motivo=(err&&(err.error_summary||err.error?.['.tag']))||('HTTP '+r.status);
+          console.error('Dropbox error:',err);
+          dbxSetStatus('err','Error al subir ('+motivo+') — descargando localmente');
+        }).catch(()=>{
+          dbxSetStatus('err','Error al subir (HTTP '+r.status+') — descargando localmente');
+        });
         exportLocal(json, fileName);
       }
     }).catch(()=>{
@@ -1106,9 +1286,10 @@ function importarTodo(){
         if(data.turnos)    S('tu', data.turnos);
         if(data.cobros)    S('co', data.cobros);
         if(data.gastos)    S('ga', data.gastos);
+        if(data.resumenesIA) S('ria', data.resumenesIA);
         // Reload state
         extraPats = L('ep',[]);patEdits=L('pe',{});dxPropio=L('dxp',{});dxIA=L('dxi',{});
-        notas2=L('n2',{});turnos=L('tu',{});cobros=L('co',[]);gastos=L('ga',[]);
+        notas2=L('n2',{});turnos=L('tu',{});cobros=L('co',[]);gastos=L('ga',[]);resumenesIA=L('ria',{});
         // Restore per-patient images
         if(data.patImgs){Object.entries(data.patImgs).forEach(([k,v])=>{try{localStorage.setItem('na5_imgs_'+k,JSON.stringify(v));}catch(e){}});}
         buildHome();buildPills();rpts();buildAg();buildStats();renderFin();
@@ -1129,7 +1310,7 @@ function importarTodo(){
 // ═══════════════════════════════════════════════════════════
 //  DROPBOX AUTO-SYNC
 // ═══════════════════════════════════════════════════════════
-const DBX_TOKEN = 'sl.u.AGj7jMrtaaOy6eCL0GYn4q4uZS_AB51m45rR9vVJ64zhWpGVvq8sDBSsZU7eBmJi22ntriRG0J5pZYhdQLZ3w-SW9cqB1YdWXR36DIt79ilHUWkT5tIUl09iUDmgBUgfQ6po400XPdI9z4du4d75_xKe4tga4NmsbvsdTSCjwLm6ZoZICuAOnJ9DhKtRZNNzATTfbojPmWCCGT-v7Y86SbAhPRkkv9dOm0bt1tSQbgf5zceCHVxd4kBlY-PcL_2Z_Z2eIbqk74am_X0OBxLQ5oupWgPoWoWqs1nt3NeG-b4NPJ1cRlqjgAgR77VGDXdNFjoPivhfbba8I82plQ4OwTxdOCgoIt05eYHBP5168IDThE4YCZFV_ahXNrc74rWulcW7kQsNWaT_mhz9cQz2m1mIF0we46fnRMG9GmFwsGE4XLCCnCs-GKr-sBGKZTKa181ifTDwIoHXj-WxieRaDyCG6ngy-VHk_M9VkzPi-MYjMk4vYPXdkS9OfD1f5YKccs8Kb-aypleVK1nEJBuz_aVcDJOGUNuidEapeFwloD2eJCsNk8rYlWfl2ACAEEmK7jk4l0kQIFtY4WmpptsTX2cqw3imik1hbSBkbN_zqJ4ptwX9ouSGkVMBgTKze0ZWAw6FLbxk3joFHAY8YXRzviuJfFeZ3emApuah1gOlLZw_lz34gDCjHk7aXuA_zFcrM_DHGWUBOZLE2Yndm7w6sENy4_Ph2XEJ2nfVfDiJomQJZfdfUnQ6f8hmaazweQn745Uf48LSU3J9Do3TxLLtTCMivP9fSIMTv6RQs5ZdrRwXylwJnxzmwkFoicZmL_7f_dL6D1BfEjZpBb0A5yNk9wXnK-pIS1vQ6lJxLhChyL6HSofUmlMOOzc4xmRZMYgwa8R2gj9MF3LUUP7IkE4ttVz93qR8UT8nGeyOTfe2Ao4zVlPkzsNZuQg5koqcHiqLCBc6hbCjWS-soqXupofuVbgNT3imLQOqeXLI2G_S5BlA6DZEYMKmPhEOy_Q7REBEYyKJ6UbOHuhI2eSNk2qMLDAQAcY8KZjOuRbJaSEVwU8Y-sXmNcb6YzJUAqzoHGJzY2aZgFvPXADAghVsvN7UHUds_sPSI7Pu2c1Bd9WiW4KeI0A-9T7MF07xdMnA580XRh8QvmhUr2Eh4pPOQ77Ha2O4YHeSQmfkz4d5pNY3Wj0A_3b579shGSmBnTBMKchyHkM0RRdY4fPYsOOdShQdG_yMyfth7aT9ho3E4tWdY-KFtk8LL9XAEEh6alFcgWdDWUeGWaV0O367ht9xO95AvoWGEpGnDWUUCNB5_oavBJkBAIQ0r_cclKy2nq84QFt9DvHmqXZMnYwEL2GcC7DL8K1-';
+const DBX_TOKEN = 'sl.u.AGj_7Wfm9O1h8uZlC0DU3Nwr8RDfjYenviO6lZtm6JFp5gQV3V-lqDqc-c1j2HrFQ4jTVr40n1RJJfpXfisz7KlkBqs2JL4WiyMBlsRlLH42RewybBRbBgkr4rWYKXqcX4pwQGTLcQGAHLorS-Rz8VEcEGiO_M9IC4hC-9jjkf9UaSZqTfQAYPppCtLVORWAN_duFAt6-Ef2dSBfLeouvC-zEK-HuHR_N-0sZop3ns02Uj35_PPtg5QfUDhpJQOwEM1uIGbWjw8yuExBwx7YYmphszJyn1xmJ3FAZITDjCohwTq5vXgAvOQJ0_Xy2Lg3ANe3ptPmyoHw_Z3zPDyiKVw_Vka9dypBQbJ0ZxJu-jdy-UIMK62oq-A0cvAN4ufUjIwgu9ezYDUkET5ur1H3zd9EYiuxubsR3fgIG4WeZ-f86aJVhD6LUVgVRpoAn_9ewhMxiGDra0ygd3gGy70ZmlQrP7DYsOh_Pok3AM3OGbcEZzWO2OFfI807ggKGJKYCE4G0enIAFLD00xb1MRgyGy02zMnWNnwI1HmUPWBusRb5Royotmy-CCxI3GRvK1z_fGToD-LHGebCszt51qqiXrSmHWLF1jin69wKvIZ7HgvAlLMLZMSdjCF4DOVZPfJJSecGpn5h9WCudf7W_FqrLkAjbnIr5iNTFd70aRyV04ZVpnvoNmwigvacDsLSPwdMvtqId5JdyKhouC9CDEOP-xZTr55qgbZBWKtisZ9n2bbhg4T4gDsSIj9v-y1STuhsv8qg64RJXSKD5dgKgb1aGzyzvdn1srXXgLkg4bUFKXusRvvOhLmVKSGE_xhxTa9q4wxXBjIWGvmz-52zF04gJ2kgN67OnZUvPIjz_KvUFJllZygfW2DBxzh0ZWeooo_KbjK5W54A1PJuu4GgFc9FztVOa17eJCJF_ieNexxhc95JfWvsPXTEjQmhnafbDOeTNCu9lvBHMq4HKtrBj8tlLBacXV8LvHUeFneE7wMX3Nvoru_5ftgLweArWYo9bBPqe--iD9NgHy7wGvuaqRzA1hUi5OJKr2TVJiRJK23Pk-iDn2g-rFh9hvE2kxHJSWsstVD_F_N_3iWpELwxM8JhqWfq6o5tgMPyxsqezdZV-XqVWWwmJ0UtXGBrGGp2H3SGVXTOlQgSTSy4RuNoRH9ESCZ68vaRZdSnHlaAmqNmVihZdFYjC6JA86l615amFsmpD1rKlwkDmMGmLNG0_S0S_YI3fLKXu9OqhwJ9krs21cm43gMfn7BtsQTDtHstW_UoXa_9PSDIcg76Oovb_SGmQZ1MJHuFveivNHjuGF7SsUPS0oBigGrofr-dWsZe9eLQIl8k1M4SeTqWtoquynoIznBd';
 const DBX_PATH = '/NeuroAgenda_backup.json';
 let dbxSaveTimer = null, dbxSaving = false;
 
@@ -1154,6 +1335,7 @@ function buildBackupPayload(){
     version: 5, fecha: new Date().toISOString(),
     extraPats: L('ep',[]), patEdits: L('pe',{}), dxPropio: L('dxp',{}), dxIA: L('dxi',{}),
     notas2: L('n2',{}), turnos: L('tu',{}), cobros: L('co',[]), gastos: L('ga',[]),
+    resumenesIA: L('ria',{}),
     patImgs: patImgs
   };
 }
@@ -1184,7 +1366,8 @@ async function dbxSaveNow(){
     } else {
       const err = await res.json();
       console.error('Dropbox error:', err);
-      dbxSetStatus('err','Error al guardar en Dropbox');
+      const motivo=(err&&(err.error_summary||err.error?.['.tag']))||('HTTP '+res.status);
+      dbxSetStatus('err','Error al guardar en Dropbox ('+motivo+')');
     }
   } catch(e){
     dbxSetStatus('err','Sin conexión');
@@ -1215,10 +1398,10 @@ async function dbxRestoreIfNeeded(){
     if(!data.version){ dbxSetStatus('ok','Dropbox: listo ✓'); return; }
     S('ep',data.extraPats||[]); S('pe',data.patEdits||{}); S('dxp',data.dxPropio||{});
     S('dxi',data.dxIA||{}); S('n2',data.notas2||{}); S('tu',data.turnos||{});
-    S('co',data.cobros||[]); S('ga',data.gastos||[]);
+    S('co',data.cobros||[]); S('ga',data.gastos||[]); S('ria',data.resumenesIA||{});
     if(data.patImgs){ Object.entries(data.patImgs).forEach(([k,v])=>{ try{ localStorage.setItem('na5_imgs_'+k, JSON.stringify(v)); }catch(e){} }); }
     extraPats=L('ep',[]); patEdits=L('pe',{}); dxPropio=L('dxp',{}); dxIA=L('dxi',{});
-    notas2=L('n2',{}); turnos=L('tu',{}); cobros=L('co',[]); gastos=L('ga',[]);
+    notas2=L('n2',{}); turnos=L('tu',{}); cobros=L('co',[]); gastos=L('ga',[]); resumenesIA=L('ria',{});
     dbxSetStatus('ok','Dropbox: datos restaurados ✓');
     buildHome(); rpts();
   } catch(e){
